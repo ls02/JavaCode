@@ -78,7 +78,6 @@ public class TestDemo {
         int target = random.nextInt(100);
 
         while (true) {
-
             System.out.println("请猜数字(1-100):>");
             int num = sc.nextInt();
 
@@ -95,8 +94,19 @@ public class TestDemo {
 
         sc.close();
     }
+
+    static void Test6() {
+        for (int i = 1; i < 10; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.printf("%d*%d=%-2d\t", i, j, i * j);
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
-        Test5();
+        Test6();
+//        Test5();
         //Test5();
 //        Test4();
 //        Test3();

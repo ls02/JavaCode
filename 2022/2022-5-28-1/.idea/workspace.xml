@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="595899f6-2a35-49ee-972f-04fccfe9de3b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2022-5-28-1/TestDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2022-5-28-1/TestDemo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2022-5-28-1/TestDemo.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TestDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestDemo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +73,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653745972699</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="MonkeyGuess">
+      <created>1653749661527</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1653749661527</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -89,7 +96,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="practice code" />
-    <option name="LAST_COMMIT_MESSAGE" value="practice code" />
+    <MESSAGE value="MonkeyGuess" />
+    <option name="LAST_COMMIT_MESSAGE" value="MonkeyGuess" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -101,7 +109,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/TestDemo.java</url>
-          <line>97</line>
+          <line>105</line>
           <properties class="TestDemo" method="main">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
