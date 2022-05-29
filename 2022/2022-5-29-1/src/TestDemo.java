@@ -84,6 +84,8 @@ public class TestDemo {
                 System.out.println(x + "不是素数!");
             }
         }
+
+        sc.close();
     }
 
     static void Test5() {
@@ -104,6 +106,8 @@ public class TestDemo {
                 System.out.println("输入错误！");
             }
         }
+
+        sc.close();
     }
 
     static void Test6() {
@@ -125,6 +129,7 @@ public class TestDemo {
             }
         }
 
+        sc.close();
     }
 
     static void Test7() {
@@ -169,6 +174,8 @@ public class TestDemo {
             }
 
             System.out.println(y);
+
+            sc.close();
         }
 
         static void Test10() {
@@ -186,11 +193,14 @@ public class TestDemo {
 
                 System.out.println(x + "有:" + count + "个1");
             }
+
+            sc.close();
         }
+
 
     public static void main(String[] args) {
 
-        Test10();
+//        Test10();
 //        Test9();
 //        Test8();
 //        Test7();
