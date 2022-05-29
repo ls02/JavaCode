@@ -32,9 +32,29 @@ public class TestDemo {
         }
     }
 
+    static void Test3() {
+        int flag = 0;
+
+        for (int i = 2; i < 100; i++) {
+            for (int j = 2; j <= Math.sqrt(i); j++) {
+                if (i % j == 0) {
+                    flag = 1;
+                    break;
+                }
+            }
+
+            if (flag == 0) {
+                System.out.printf("%d ", i);
+            } else {
+                flag = 0;
+            }
+        }
+    }
+
     public static void main(String[] args) {
 
-        Test2();
+        Test3();
+//        Test2();
 //        Test1();
 
     }
