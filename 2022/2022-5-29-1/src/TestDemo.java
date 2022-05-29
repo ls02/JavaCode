@@ -1,3 +1,4 @@
+import java.util.Scanner;
 /**
  * Created with IntelliJ IDEA.
  * Description:
@@ -51,9 +52,41 @@ public class TestDemo {
         }
     }
 
+    static boolean IsPrimeNum(int x) {
+        if (x <= 1) {
+            return false;
+        }
+
+        int flag = 0;
+        for (int i = 2; i <= Math.sqrt(x); i++) {
+            if (x % i == 0) {
+                flag = 1;
+                break;
+            }
+        }
+
+        if (flag == 1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    static void Test4() {
+        Scanner sc = new Scanner(System.in);
+
+        int x = sc.nextInt();
+        if (IsPrimeNum(x)) {
+            System.out.println(x + "是素数!");
+        } else {
+            System.out.println(x + "不是素数!");
+        }
+    }
+
     public static void main(String[] args) {
 
-        Test3();
+        Test4();
+//        Test3();
 //        Test2();
 //        Test1();
 
