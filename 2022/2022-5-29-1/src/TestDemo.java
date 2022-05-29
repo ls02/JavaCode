@@ -144,8 +144,8 @@ public class TestDemo {
             int flag = 1;
             double sum = 0.0;
 
-            for (int i = 1; i < 100; i++) {
-                sum += 1.0 * (double)flag / (double)i;
+            for (int i = 1; i <= 100; i++) {
+                sum += (double)flag / (double)i;
                 flag *= -1;
             }
 
