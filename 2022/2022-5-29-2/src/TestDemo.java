@@ -145,8 +145,34 @@ public class TestDemo {
         sc.close();
     }
 
+    static void Test7() {
+        Scanner sc = new Scanner(System.in);
+
+        while (sc.hasNextInt()) {
+            int n = sc.nextInt();
+            int sum = 0;
+
+            for (int j = 1; j <= n; j++) {
+                int ret = 1;
+                int i = j;
+
+                while (i > 0) {
+                    ret *= i;
+                    i--;
+                }
+
+                sum += ret;
+            }
+
+            System.out.println(n + "的阶乘和为:>" + sum);
+        }
+
+        sc.close();
+    }
+
     public static void main(String[] args) {
-        Test6();
+        Test7();
+//        Test6();
 //        Test5();
 //        Test4();
 //        Test3();
