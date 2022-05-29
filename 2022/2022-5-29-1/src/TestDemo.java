@@ -127,9 +127,23 @@ public class TestDemo {
 
     }
 
+    static void Test7() {
+        for (int i = 100; i <= 999; i++) {
+            int num1 = i / 10 / 10  % 10;
+            int num2 = i / 10 % 10;
+            int num3 = i % 10;
+
+            int ret = (num1 * num1 * num1) + (num2 * num2 * num2) + (num3 * num3 * num3);
+            if (ret == i) {
+                System.out.println(i);
+            }
+        }
+    }
+
     public static void main(String[] args) {
 
-        Test6();
+        Test7();
+//        Test6();
 //        Test5();
 //        Test4();
 //        Test3();
