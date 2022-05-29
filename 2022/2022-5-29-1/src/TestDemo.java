@@ -75,11 +75,13 @@ public class TestDemo {
     static void Test4() {
         Scanner sc = new Scanner(System.in);
 
-        int x = sc.nextInt();
-        if (IsPrimeNum(x)) {
-            System.out.println(x + "是素数!");
-        } else {
-            System.out.println(x + "不是素数!");
+        while (sc.hasNextInt()) {
+            int x = sc.nextInt();
+            if (IsPrimeNum(x)) {
+                System.out.println(x + "是素数!");
+            } else {
+                System.out.println(x + "不是素数!");
+            }
         }
     }
 
