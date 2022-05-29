@@ -101,8 +101,30 @@ public class TestDemo {
         sc.close();
     }
 
+    /**
+     * 找只出现一次的数
+     * @param arr 传递一个数组
+     * @return 返回只出现一次的值
+     */
+    static int FindNumOnce(int[] arr) {
+        int temp = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            temp ^= arr[i];
+        }
+
+        return temp;
+    }
+
+    static void Test5() {
+        int[] arr = { 1, 1, 2, 2, 5, 4, 4 };
+
+        System.out.println(FindNumOnce(arr));
+    }
+
     public static void main(String[] args) {
-        Test4();
+        Test5();
+//        Test4();
 //        Test3();
 //        Test2();
 //        Test1();
