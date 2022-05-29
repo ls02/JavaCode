@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.lang.String;
 /**
  * Created with IntelliJ IDEA.
  * Description:
@@ -7,7 +8,9 @@ import java.util.Scanner;
  * Time: 16:51
  */
 public class TestDemo {
-
+    /***
+     * 显示一个数的偶数二进制位和奇数二进制位
+     */
     static void Test1() {
         Scanner sc = new Scanner(System.in);
 
@@ -41,7 +44,29 @@ public class TestDemo {
         }
     }
 
+    static void Test2() {
+        Scanner sc = new Scanner(System.in);
+        int count = 3;
+
+        while (count != 0) {
+            System.out.print("请输入密码:>");
+            String passWord = sc.nextLine();
+            if (passWord.equals("123 456")) {
+                System.out.println("登录成功!");
+                break;
+            } else {
+                count--;
+                System.out.println("登录失败!");
+
+                if (count != 0) {
+                    System.out.println("你还有" + count + "次机会!");
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
-        Test1();
+        Test2();
+//        Test1();
     }
 }
