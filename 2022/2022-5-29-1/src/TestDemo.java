@@ -85,9 +85,30 @@ public class TestDemo {
         }
     }
 
+    static void Test5() {
+        Scanner sc = new Scanner(System.in);
+
+        while (sc.hasNextInt()) {
+            int age = sc.nextInt();
+
+            if (age >= 0 && age < 18) {
+                System.out.println("少年!");
+            } else if (age >= 18 && age <= 28) {
+                System.out.println("青年!");
+            } else if (age >= 29 && age <= 55) {
+                System.out.println("中年!");
+            } else if (age > 55) {
+                System.out.println("老年!");
+            } else {
+                System.out.println("输入错误！");
+            }
+        }
+    }
+
     public static void main(String[] args) {
 
-        Test4();
+        Test5();
+//        Test4();
 //        Test3();
 //        Test2();
 //        Test1();
