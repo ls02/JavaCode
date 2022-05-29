@@ -190,8 +190,36 @@ public class TestDemo {
         sc.close();
     }
 
+    static void Test9() {
+        int[] arr = { 3, 2, 5, 4, 7, 8, 9, 11 };
+        int left = 0;
+        int right = arr.length - 1;
+
+        while (left < right) {
+            while (left < right && arr[left] % 2 != 0) {
+                left++;
+            }
+
+            while (left < right && arr[right] % 2 == 0) {
+                right--;
+            }
+
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+
+            ++left;
+            --right;
+        }
+
+        for (int e : arr) {
+            System.out.print(e + " ");
+        }
+    }
+
     public static void main(String[] args) {
-        Test8();
+        Test9();
+//        Test8();
 //        Test7();
 //        Test6();
 //        Test5();
