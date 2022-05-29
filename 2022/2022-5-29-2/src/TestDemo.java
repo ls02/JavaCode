@@ -170,8 +170,29 @@ public class TestDemo {
         sc.close();
     }
 
+    static void Test8() {
+        Scanner sc = new Scanner(System.in);
+
+        while (sc.hasNextInt()) {
+            int n = sc.nextInt();
+
+            int ret = 1;
+            int i = n;
+
+            while (i > 0) {
+                ret *= i;
+                i--;
+            }
+
+            System.out.println(n + "的阶乘为:>" + ret);
+        }
+
+        sc.close();
+    }
+
     public static void main(String[] args) {
-        Test7();
+        Test8();
+//        Test7();
 //        Test6();
 //        Test5();
 //        Test4();
