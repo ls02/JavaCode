@@ -152,9 +152,29 @@ public class TestDemo {
             System.out.println(sum);
         }
 
+        static void Test9() {
+            Scanner sc = new Scanner(System.in);
+            int x = 0;
+            int y = 0;
+            int temp = 0;
+
+            System.out.println("请输入两个整数:>");
+            x = sc.nextInt();
+            y = sc.nextInt();
+
+            while (x % y != 0) {
+                temp = x % y;
+                x = y;
+                y = temp;
+            }
+
+            System.out.println(y);
+        }
+
     public static void main(String[] args) {
 
-        Test8();
+        Test9();
+//        Test8();
 //        Test7();
 //        Test6();
 //        Test5();
