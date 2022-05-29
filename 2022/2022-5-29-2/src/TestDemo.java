@@ -42,6 +42,8 @@ public class TestDemo {
             }
             System.out.println();
         }
+
+        sc.close();
     }
 
     static void Test2() {
@@ -63,10 +65,31 @@ public class TestDemo {
                 }
             }
         }
+
+        sc.close();
+    }
+
+    static void Test3() {
+        Scanner sc = new Scanner(System.in);
+
+        while (sc.hasNextInt()) {
+            int x = sc.nextInt();
+
+            while (x > 0) {
+                System.out.printf("%d ", x % 10);
+
+                x /= 10;
+            }
+
+            System.out.println();
+        }
+
+        sc.close();
     }
 
     public static void main(String[] args) {
-        Test2();
+        Test3();
+//        Test2();
 //        Test1();
     }
 }
