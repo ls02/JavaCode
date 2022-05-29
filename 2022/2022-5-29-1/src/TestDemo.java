@@ -23,7 +23,19 @@ public class TestDemo {
         System.out.println(count);
     }
 
+    static void Test2() {
+        for (int i = 1000; i <= 2000; i++) {
+            if ((i % 400 == 0 && i % 100 != 0)
+                || i % 4 == 0) {
+                System.out.printf("%d ", i);
+            }
+        }
+    }
+
     public static void main(String[] args) {
-        Test1();
+
+        Test2();
+//        Test1();
+
     }
 }
