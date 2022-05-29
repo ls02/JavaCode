@@ -9,11 +9,11 @@ public class TestDemo {
     static void Test1() {
         int count = 0;
         for (int i = 1; i < 100; i++) {
-            if (i % 9 == 0)
-            {
-                if ((i / 10) / 9 == 0)
-                {
-                    count++;
+            if (i % 9 == 0) {
+                if (i > 10) {
+                    if ((i / 10) / 9 == 0) {
+                        count++;
+                    }
                 }
 
                 count++;
