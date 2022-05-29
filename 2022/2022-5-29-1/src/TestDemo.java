@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 /**
  * Created with IntelliJ IDEA.
  * Description:
@@ -105,9 +106,31 @@ public class TestDemo {
         }
     }
 
+    static void Test6() {
+        Scanner sc = new Scanner(System.in);
+        Random ra = new Random();
+        int num = ra.nextInt(100);
+
+        while (true) {
+            System.out.println("请猜数字(1-100)>:");
+            int x = sc.nextInt();
+
+            if (x > num) {
+                System.out.println("猜大了!");
+            } else if (x < num) {
+                System.out.println("猜小了!");
+            } else {
+                System.out.println("恭喜!猜对了!");
+                break;
+            }
+        }
+
+    }
+
     public static void main(String[] args) {
 
-        Test5();
+        Test6();
+//        Test5();
 //        Test4();
 //        Test3();
 //        Test2();
