@@ -217,8 +217,38 @@ public class TestDemo {
         }
     }
 
+    /**
+     * 求两个数的最大值
+     * @param a
+     * @param b
+     * @return 返回当中最大的值
+     */
+    static int Max2(int a, int b) {
+        return a > b ? a : b;
+    }
+
+    /**
+     * 求三个数中最大的值
+     * @param a
+     * @param b
+     * @param c
+     * @return 返回这三个数中最大的值
+     */
+    static int Max3(int a, int b, int c) {
+        return (Max2(a, b) > Max2(a, c)) ? (Max2(Max2(a, b), c) : Max2(Max2(a, c), b));
+    }
+
+    static void Test10() {
+        int a = 10;
+        int b = 50;
+        int c = 30;
+
+        System.out.println(Max3(b, a, c));
+    }
+
     public static void main(String[] args) {
-        Test9();
+        Test10();
+//        Test9();
 //        Test8();
 //        Test7();
 //        Test6();
