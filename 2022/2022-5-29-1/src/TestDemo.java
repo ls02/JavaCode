@@ -171,9 +171,27 @@ public class TestDemo {
             System.out.println(y);
         }
 
+        static void Test10() {
+            Scanner sc = new Scanner(System.in);
+
+            while (sc.hasNextInt()) {
+                int x = sc.nextInt();
+                int count = 0;
+
+                for (int i = 0; i < 32; i++) {
+                    if ((((x >> i) & 1) == 1)) {
+                        count++;
+                    }
+                }
+
+                System.out.println(x + "有:" + count + "个1");
+            }
+        }
+
     public static void main(String[] args) {
 
-        Test9();
+        Test10();
+//        Test9();
 //        Test8();
 //        Test7();
 //        Test6();
