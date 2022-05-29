@@ -122,8 +122,32 @@ public class TestDemo {
         System.out.println(FindNumOnce(arr));
     }
 
+    static void Test6() {
+        Scanner sc = new Scanner(System.in);
+
+        while (sc.hasNextInt()) {
+            int n = sc.nextInt();
+            int x = 0;
+            int y = 1;
+            int i = n;
+
+            while (i > 0) {
+                int temp = x + y;
+                x = y;
+                y = temp;
+
+                i--;
+            }
+
+            System.out.println("第" + n + "项斐波那契数列:>" + x);
+        }
+
+        sc.close();
+    }
+
     public static void main(String[] args) {
-        Test5();
+        Test6();
+//        Test5();
 //        Test4();
 //        Test3();
 //        Test2();
