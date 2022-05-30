@@ -252,8 +252,23 @@ public class TestDemo {
         System.out.println(Arrays.toString(arr));
     }
 
+    static void PrintArray(int[] arr) {
+        for (int e : arr) {
+            System.out.print(e + " ");
+        }
+
+        System.out.println();
+    }
+
+    static void Test14() {
+        int[] arr = { 1, 2, 3, 4};
+
+        PrintArray(arr);
+    }
+
     public static void main(String[] args) {
-        Test13();
+        Test14();
+//        Test13();
 //        Test12();
 //        Test11();
 //        Test10();
