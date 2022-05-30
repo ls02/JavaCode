@@ -378,8 +378,31 @@ public class TestDemo {
         System.out.println(Arrays.toString(copy));
     }
 
+    static String ToString(int[] arr) {
+        String str = "[";
+
+        for (int i = 0; i < arr.length; i++) {
+            str += Integer.toString(arr[i]);
+
+            if (i < arr.length - 1) {
+                str += ",";
+            }
+        }
+
+        str += "]";
+
+        return str;
+    }
+
+    static void Test20() {
+        int[] arr = { 1, 2, 3, 4 };
+
+        System.out.println(ToString(arr));
+    }
+
     public static void main(String[] args) {
-        Test19();
+        Test20();
+//        Test19();
 //        Test18();
 //        Test17();
 //        Test16();
