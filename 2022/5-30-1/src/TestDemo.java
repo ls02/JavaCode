@@ -208,8 +208,24 @@ public class TestDemo {
         sc.close();
     }
 
+    static double Avg(int[] arr) {
+        int ret = 0;
+        for (int e : arr) {
+            ret += e;
+        }
+
+        return ret / arr.length;
+    }
+
+    static void Test11() {
+        int[] arr = { 1, 2, 3, 4, 5 };
+
+        System.out.println(Avg(arr));
+    }
+
     public static void main(String[] args) {
-        Test10();
+        Test11();
+//        Test10();
 //        Test9();
 //        Test8();
 //        Test7();
