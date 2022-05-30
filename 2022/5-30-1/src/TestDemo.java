@@ -188,8 +188,29 @@ public class TestDemo {
         sc.close();
     }
 
+    static int MulSumNum(int n) {
+        if (n == 1) {
+            return 1;
+        } else {
+            return n * MulSumNum(n - 1);
+        }
+    }
+
+    static void Test10() {
+        Scanner sc = new Scanner(System.in);
+
+        while (sc.hasNextInt()) {
+            int n = sc.nextInt();
+
+            System.out.println(n + "的阶乘为:>" + MulSumNum(n));
+        }
+
+        sc.close();
+    }
+
     public static void main(String[] args) {
-        Test9();
+        Test10();
+//        Test9();
 //        Test8();
 //        Test7();
 //        Test6();
