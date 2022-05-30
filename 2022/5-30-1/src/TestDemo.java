@@ -75,8 +75,56 @@ public class TestDemo {
         System.out.println(Func(n));
     }
 
+
+    public static void hanoi(int num, char sou, char tar, char sux) {
+        int i = 1;
+        // 如果圆盘数量仅有 1 个，则直接从起始柱移动到目标柱
+        if (num == 1) {
+            System.out.println("第" + i + "次:从" + sou + "移动到" + tar);
+            i++;
+        } else {
+            // 递归调用 hanoi() 函数，将 num-1 个圆盘从起始柱移动到辅助柱上
+            hanoi(num - 1, sou, sux, tar);
+            // 将起始柱上剩余的最后一个大圆盘移动到目标柱上
+            System.out.println("第" + i + "次:从" + sou + "移动到" + tar);
+            i++;
+            // 递归调用 hanoi() 函数，将辅助柱上的 num-1 圆盘移动到目标柱上
+            hanoi(num - 1, sux, tar, sou);
+        }
+    }
+
+    static void Test5() {
+        Scanner sc = new Scanner(System.in);
+
+        while (sc.hasNextInt()) {
+            int n = sc.nextInt();
+
+            hanoi(n, 'A', 'B', 'C');
+        }
+    }
+
+    static int FibonacciNum(int n) {
+        if (n <= 2) {
+            return 1;
+        } else {
+            return FibonacciNum(n - 1) + FibonacciNum(n - 2);
+        }
+    }
+
+    static void Test6() {
+        Scanner sc = new Scanner(System.in);
+
+        while (sc.hasNextInt()) {
+            int n = sc.nextInt();
+
+            System.out.println("第" + n + "项为:>" + FibonacciNum(n));
+        }
+    }
+
     public static void main(String[] args) {
-        Test4();
+        Test6();
+//        Test5();
+//        Test4();
 //        Test3();
 //        Test2();
 //        Test1();
