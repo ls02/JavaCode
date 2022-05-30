@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * Created with IntelliJ IDEA.
@@ -50,8 +51,33 @@ public class TestDemo {
         System.out.println(Add(2.3 ,5.3, 5.2));
     }
 
+    static int Func(int n) {
+        if (n <= 0) {
+            System.out.println("输入错误!");
+
+            return -1;
+        }
+
+        if (n == 1) {
+            return 1;
+        } else if (n == 2) {
+            return 2;
+        }else {
+            return Func(n - 1) + Func(n - 2);
+        }
+    }
+
+    static void Test4() {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        System.out.println(Func(n));
+    }
+
     public static void main(String[] args) {
-        Test3();
+        Test4();
+//        Test3();
 //        Test2();
 //        Test1();
     }
