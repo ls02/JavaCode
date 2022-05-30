@@ -37,8 +37,22 @@ public class TestDemo {
         System.out.println(Max(2.3, 4.5));
     }
 
+    static int Add(int a, int b){
+        return a + b;
+    }
+
+    static double Add(double a, double b, double c) {
+        return a + b + c;
+    }
+
+    static void Test3() {
+        System.out.println(Add(2, 4));
+        System.out.println(Add(2.3 ,5.3, 5.2));
+    }
+
     public static void main(String[] args) {
-        Test2();
+        Test3();
+//        Test2();
 //        Test1();
     }
 }
