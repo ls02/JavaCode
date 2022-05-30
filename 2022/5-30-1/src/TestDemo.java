@@ -146,8 +146,31 @@ public class TestDemo {
         sc.close();
     }
 
+    static void RePrintNum(int n) {
+        if (n <= 0) {
+            return;
+        } else {
+            RePrintNum(n / 10);
+            System.out.print(n % 10 + " ");
+        }
+    }
+
+    static void Test8() {
+        Scanner sc = new Scanner(System.in);
+
+        while (sc.hasNextInt()) {
+            int n = sc.nextInt();
+
+            RePrintNum(n);
+            System.out.println();
+        }
+
+        sc.close();
+    }
+
     public static void main(String[] args) {
-        Test7();
+        Test8();
+//        Test7();
 //        Test6();
 //        Test5();
 //        Test4();
