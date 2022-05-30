@@ -277,8 +277,37 @@ public class TestDemo {
 
     }
 
+    static void BubbliSort(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            boolean flag = true;
+
+            for (int j = 0; j < arr.length - i; j++) {
+                if (arr[j + 1] < arr[j]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+
+                    flag = false;
+                }
+            }
+
+            if (flag) {
+                break;
+            }
+        }
+    }
+
+    static void Test16() {
+        int[] arr = { 5, 4, 3, 2, 1 };
+
+        BubbliSort(arr);
+
+        System.out.println(Arrays.toString(arr));
+    }
+
     public static void main(String[] args) {
-        Test15();
+        Test16();
+//        Test15();
 //        Test14();
 //        Test13();
 //        Test12();
