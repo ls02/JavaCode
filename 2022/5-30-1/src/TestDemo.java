@@ -305,8 +305,37 @@ public class TestDemo {
         System.out.println(Arrays.toString(arr));
     }
 
+    static boolean IsSortArr(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            boolean flag = true;
+            for (int j = 0; j < arr.length - i; j++) {
+                if (arr[j + 1] < arr[j]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+
+                    flag = false;
+                }
+            }
+
+            if (flag) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    static void Test17() {
+//        int[] arr = { 5, 4, 3, 2, 1 };
+        int[] arr = { 1, 2, 3, 4 };
+
+        System.out.println(IsSortArr(arr));
+    }
+
     public static void main(String[] args) {
-        Test16();
+        Test17();
+//        Test16();
 //        Test15();
 //        Test14();
 //        Test13();
