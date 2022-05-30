@@ -168,8 +168,29 @@ public class TestDemo {
         sc.close();
     }
 
+    static int AddSumNum(int n) {
+        if (n == 0) {
+            return 0;
+        } else {
+            return n + AddSumNum(n - 1);
+        }
+    }
+
+    static void Test9() {
+        Scanner sc = new Scanner(System.in);
+
+        while (sc.hasNextInt()) {
+            int n = sc.nextInt();
+
+            System.out.println(n + "的和为:>" + AddSumNum(n));
+        }
+
+        sc.close();
+    }
+
     public static void main(String[] args) {
-        Test8();
+        Test9();
+//        Test8();
 //        Test7();
 //        Test6();
 //        Test5();
