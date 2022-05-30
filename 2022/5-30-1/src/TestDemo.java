@@ -223,8 +223,25 @@ public class TestDemo {
         System.out.println(Avg(arr));
     }
 
+    static int Sum(int[] arr) {
+        int ret = 0;
+
+        for (int e : arr) {
+            ret += e;
+        }
+
+        return ret;
+    }
+
+    static void Test12() {
+        int[] arr = { 1, 2, 3, 4 };
+
+        System.out.println(Sum(arr));
+    }
+
     public static void main(String[] args) {
-        Test11();
+        Test12();
+//        Test11();
 //        Test10();
 //        Test9();
 //        Test8();
