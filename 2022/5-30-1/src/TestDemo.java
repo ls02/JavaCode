@@ -333,8 +333,34 @@ public class TestDemo {
         System.out.println(IsSortArr(arr));
     }
 
+    static int Find(int[] arr, int key) {
+        int left = 0;
+        int right = arr.length - 1;
+
+        while (left <= right) {
+            int mid = (left + right) / 2;
+
+            if (arr[mid] > key) {
+                right--;
+            } else if (arr[mid] < key) {
+                left++;
+            } else {
+                return mid;
+            }
+        }
+
+        return -1;
+    }
+
+    static void Test18() {
+        int[] arr = { 1, 2, 3, 4 };
+
+        System.out.println(Find(arr, 2));
+    }
+
     public static void main(String[] args) {
-        Test17();
+        Test18();
+//        Test17();
 //        Test16();
 //        Test15();
 //        Test14();
