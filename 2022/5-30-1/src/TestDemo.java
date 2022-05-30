@@ -73,6 +73,8 @@ public class TestDemo {
         int n = sc.nextInt();
 
         System.out.println(Func(n));
+
+        sc.close();
     }
 
 
@@ -101,6 +103,8 @@ public class TestDemo {
 
             hanoi(n, 'A', 'B', 'C');
         }
+
+        sc.close();
     }
 
     static int FibonacciNum(int n) {
@@ -119,10 +123,32 @@ public class TestDemo {
 
             System.out.println("第" + n + "项为:>" + FibonacciNum(n));
         }
+
+        sc.close();
+    }
+
+    static int SumNum(int n) {
+        if (n == 0) {
+            return 0;
+        } else{
+            return SumNum(n / 10) + n % 10;
+        }
+    }
+
+    static void Test7() {
+        Scanner sc = new Scanner(System.in);
+
+        while (sc.hasNextInt()) {
+            int n = sc.nextInt();
+
+            System.out.println(SumNum(n));
+        }
+        sc.close();
     }
 
     public static void main(String[] args) {
-        Test6();
+        Test7();
+//        Test6();
 //        Test5();
 //        Test4();
 //        Test3();
