@@ -358,8 +358,29 @@ public class TestDemo {
         System.out.println(Find(arr, 2));
     }
 
+    static int[] CopyOfArr(int[] arr) {
+        int[] copy = new int[arr.length];
+
+        for (int i = 0; i < arr.length; i++) {
+            copy[i] = arr[i];
+        }
+
+        return copy;
+    }
+
+    static void Test19() {
+        int[] arr = { 1, 2, 3, 4 };
+        int[] copy = CopyOfArr(arr);
+
+        copy[0] = 200;
+
+        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(copy));
+    }
+
     public static void main(String[] args) {
-        Test18();
+        Test19();
+//        Test18();
 //        Test17();
 //        Test16();
 //        Test15();
