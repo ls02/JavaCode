@@ -173,4 +173,8 @@ public class SeqList {
         return -1;
     }
 
+    public void Clear() {
+        _size = 0;
+    }
+
 }
