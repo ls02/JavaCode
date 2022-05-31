@@ -17,7 +17,8 @@ public class TestDemo {
         s1.PushBack(6);
         s1.PushBack(7);
 
-        SeqList s2 = s1;
+        SeqList s2 = new SeqList(s1);
+        SeqList s3 = new SeqList(s1);
 
         s1.Display();
         s2.Display();
@@ -51,5 +52,8 @@ public class TestDemo {
         s1.PopBack();
         s1.PopBack();
         System.out.println(s1.Size());
+
+        int ret = s3.Find(3);
+        System.out.println(ret);
     }
 }

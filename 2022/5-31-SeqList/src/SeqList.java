@@ -34,13 +34,13 @@ public class SeqList {
      * @param seqL 传递一个对象
      */
     public SeqList(SeqList seqL) {
-        _data = new int[seqL._size];
+        _data = new int[seqL.Size()];
 
         for (int i = 0; i < seqL._size; i++) {
             _data[i] = seqL._data[i];
         }
 
-        _size = seqL._size;
+        _size = seqL.Size();
         _capacity = seqL._capacity;
     }
 
@@ -96,6 +96,10 @@ public class SeqList {
         _size--;
     }
 
+    /**
+     * 删除pos位置的数据
+     * @param pos 要删除的位置
+     */
     public void Erase(int pos) {
         if (pos < 0 || pos > _capacity) {
             System.out.println("删除位置非法");
@@ -143,12 +147,30 @@ public class SeqList {
         _size = copy.length;
     }
 
+    /**
+     * 显示顺序表内的数据
+     */
     public void Display() {
         for (int i = 0; i < _size; i++) {
             System.out.print(_data[i] + " ");
         }
 
         System.out.println();
+    }
+
+    /**
+     * 查找一个值是否在顺序表内
+     * @param key 要查找的值
+     * @return 返回找到的值的下标
+     */
+    public int Find(int key) {
+        for (int i = 0; i < _size; i++) {
+            if (_data[i] == key) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
 }
