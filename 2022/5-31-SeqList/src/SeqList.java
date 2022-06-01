@@ -5,6 +5,7 @@
  * Date: 2022-05-31
  * Time: 17:38
  */
+
 public class SeqList {
     private int[] _data;
     private int _size;
