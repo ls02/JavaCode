@@ -67,7 +67,41 @@ public class TestDemo {
         }
     }
 
+    public static void ListTest1() {
+        List l1 = new List();
+
+//        l1.Insert(0, 1);
+//        l1.Insert(0, 2);
+        l1.PushBack(1);
+        l1.PushBack(2);
+        l1.PushBack(3);
+        l1.PushBack(4);
+
+        l1.PushFront(5);
+        l1.PushFront(6);
+        l1.PushFront(7);
+
+
+        l1.Display();
+
+        l1.PopFront();
+        l1.PopFront();
+        l1.Display();
+
+        l1.Erase(0);
+        l1.Display();
+
+        ListNode temp = l1.Find(1);
+
+        if (null != temp) {
+            System.out.println("找到了");
+        } else {
+            System.out.println("没找到");
+        }
+    }
+
     public static void main(String[] args) {
-        SListTest1();
+        ListTest1();
+//        SListTest1();
     }
 }
