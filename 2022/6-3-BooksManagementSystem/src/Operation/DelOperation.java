@@ -73,6 +73,8 @@ public class DelOperation implements IOperation{
             }
         } while (input != 0);
     }
+
+    @Override
     public void work(BookList bookList) {
         int input = 0;
         do {

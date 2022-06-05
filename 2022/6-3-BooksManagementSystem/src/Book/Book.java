@@ -77,4 +77,8 @@ public class Book {
                 '}';
     }
 
+    public void Print() {
+        System.out.printf("%-8s|%-10s|%-4s|%-5d|\n", type, name, author, price);
+    }
+
 }

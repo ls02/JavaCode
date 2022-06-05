@@ -13,6 +13,7 @@ import com.sun.deploy.net.MessageHeader;
  */
 public class AddOperation implements IOperation{
 
+    @Override
     public void work(BookList bookList) {
         System.out.println("新增图书！");
         System.out.print("请输入书名:>");
