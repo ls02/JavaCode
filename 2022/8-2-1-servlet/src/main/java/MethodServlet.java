@@ -25,4 +25,10 @@ public class MethodServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().write("POST response");
     }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/plain; charset=utf-8");
+        resp.getWriter().write("PUT 响应");
+    }
 }
