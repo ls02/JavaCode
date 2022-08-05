@@ -2,7 +2,7 @@
  * @Author: ls02 <2877455773@qq.com>
  * @Date: 2022-08-03 17:34:23
  * @LastEditors: ls02 <2877455773@qq.com>
- * @LastEditTime: 2022-08-03 17:38:48
+ * @LastEditTime: 2022-08-03 17:48:24
  * @FilePath: \Webapp\index.html
  * @Description: 
  * 
@@ -19,6 +19,7 @@
 <body>
     <button onclick="sendGet()">发送 GET 请求</button>
     <button onclick="sendPost()">发送 POST 请求</button>
+    <button onclick="sendPut()">发送 PUT 请求</button>
 
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
@@ -38,6 +39,17 @@
                 url: "method",
                 data: "request body",
                 success: function(data, status) {
+                    console.log(data);
+                }
+            })
+        }
+
+        function sendPut() {
+            $.ajax({
+                type: "put",
+                url: "method",
+                data: "request body",
+                success: function(data, status){
                     console.log(data);
                 }
             })
