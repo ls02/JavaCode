@@ -18,7 +18,6 @@ public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        super.doGet(req, resp);
 //        System.out.println("hello");
-//        System.out.println("hello");
         resp.getWriter().write("hello");
     }
 }
