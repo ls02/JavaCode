@@ -9,16 +9,16 @@ import java.io.IOException;
  * Created with IntelliJ IDEA.
  * Description:
  * User: 86176
- * Date: 2022-08-15
- * Time: 22:00
+ * Date: 2022-08-16
+ * Time: 15:51
  */
-@WebServlet("/hello")
-public class HelloServlet extends HttpServlet {
+@WebServlet("/getParameter")
+public class GetParameterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int num = 10;
-        int num2 = num + num;
-        System.out.println(num2);
-        resp.getWriter().write("Hello World");
+        resp.setContentType("text/html; charset=utf-8");
+        String userId = req.getParameter("userId");
+        String classId = req.getParameter("classId");
+        resp.getWriter().write(String.format("userId：%s; classId: %s <br>", userId, classId));
     }
 }
