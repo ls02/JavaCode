@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
+ * Created with IntelliJ IDEA..
  * Description:
  * User: 86176
  * Date: 2022-08-17
