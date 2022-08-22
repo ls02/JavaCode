@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * Created with IntelliJ IDEA.
+ * Created with IntelliJ IDEA..
  * Description:
  * User: 86176
  * Date: 2022-08-20
