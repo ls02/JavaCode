@@ -24,6 +24,11 @@ public class ThymeleafConfig implements ServletContextListener {
         resolver.setPrefix("/WEB-INF/template/");
         resolver.setSuffix(".html");
         resolver.setCharacterEncoding("UTF-8");
+
+        engine.setTemplateResolver(resolver);
+        context.setAttribute("engine", engine);
+
+        System.out.println("TemplateEngine 初始化完毕!");
     }
 
     @Override
