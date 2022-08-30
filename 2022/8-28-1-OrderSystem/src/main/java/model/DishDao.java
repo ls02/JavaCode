@@ -125,10 +125,10 @@ public class DishDao {
     public static void main(String[] args) throws OrderSystemException {
         DishDao dishDao = new DishDao();
 //         1. 测试新增
-//        Dish dish = new Dish();
-//        dish.setName("红烧肉");
-//        dish.setPrice(3000); // 单位是 分
-//        dishDao.add(dish);
+        Dish dish = new Dish();
+        dish.setName("肉蛋冲击");
+        dish.setPrice(3500); // 单位是 分
+        dishDao.add(dish);
         // 2. 测试查找
 //        List<Dish> dishes = dishDao.selectAll();
 //        System.out.println("查看所有");
@@ -139,6 +139,6 @@ public class DishDao {
 //        System.out.println(dish);
 
         // 3. 测试删除
-        dishDao.delete(1);
+//        dishDao.delete(1);
     }
 }

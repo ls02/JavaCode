@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -119,6 +120,36 @@ public class DishServlet extends HttpServlet {
             response.reason = e.getMessage();
         } finally {
             resp.setContentType("application/json; charset=utf-8");
+            String jsonString = gson.toJson(response);
+            resp.getWriter().write(jsonString);
+        }
+    }
+
+//    查看所有菜品 API
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Response response = new Response();
+        req.setCharacterEncoding("UTF-8");
+        resp.setContentType("application/json; charset=utf-8");
+        try {
+//            1. 检测登录抓过你太
+            HttpSession session = req.getSession(false);
+            if (session == null) {
+                throw new OrderSystemException("您尚未登陆");
+            }
+            User user = (User) session.getAttribute("user");
+            if (user == null) {
+                throw new OrderSystemException("您尚未登陆");
+            }
+//            2. 从数据库中读取数据
+            DishDao dishDao = new DishDao();
+            List<Dish> dishes = dishDao.selectAll();
+//            3. 把结果返回到页面即可
+            String jsonString = gson.toJson(dishes);
+            resp.getWriter().write(jsonString);
+        } catch (OrderSystemException e) {
+            response.ok = 0;
+            response.reason = e.getMessage();
             String jsonString = gson.toJson(response);
             resp.getWriter().write(jsonString);
         }
