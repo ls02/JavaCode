@@ -12,6 +12,7 @@ public class User {
     private String name;
     private String password;
     private int isAdmin;
+    private String address;
 
     public int getUserId() {
         return userId;
@@ -45,6 +46,14 @@ public class User {
         this.isAdmin = isAdmin;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -52,6 +61,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", isAdmin=" + isAdmin +
+                ", address='" + address + '\'' +
                 '}';
     }
 }

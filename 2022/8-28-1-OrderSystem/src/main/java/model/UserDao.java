@@ -21,14 +21,15 @@ public class UserDao {
 //      1. 和数据库建立连接
         Connection connection = DBUtil.getConnection();
 //        2. 拼装 SQL 语句
-        String sql = "insert into user values(null, ?, ?, ?)";
+        String sql = "insert into user values(null, ?, ?, ?, ?)";
         PreparedStatement statement = null;
 
         try {
             statement = connection.prepareStatement(sql);
-            statement.setString(1, user.getPassword());
-            statement.setInt(2, user.getIsAdmin());
-            statement.setString(3, user.getName());
+            statement.setString(1, user.getName());
+            statement.setString(2, user.getPassword());
+            statement.setInt(3, user.getIsAdmin());
+            statement.setString(4, user.getAddress());
 
 //          3. 执行 SQL
             int ret = statement.executeUpdate();
@@ -65,6 +66,7 @@ public class UserDao {
                 user.setName(resultSet.getString("name"));
                 user.setPassword(resultSet.getString("password"));
                 user.setIsAdmin(resultSet.getInt("isAdmin"));
+                user.setAddress(resultSet.getString("address"));
 
                 return user;
             }
@@ -149,6 +151,7 @@ public class UserDao {
                 user.setName(resultSet.getString("name"));
                 user.setPassword(resultSet.getString("password"));
                 user.setIsAdmin(resultSet.getInt("isAdmin"));
+                user.setAddress(resultSet.getString("address"));
                 return user;
             }
         } catch (SQLException e) {
@@ -164,18 +167,19 @@ public class UserDao {
     public static void main(String[] args) throws OrderSystemException {
         UserDao userDao = new UserDao();
 
-//        User user = new User();
-//        user.setName("张三");
-//        user.setPassword("123456");
-//        user.setIsAdmin(0);
-//        userDao.add(user);
+        User user = new User();
+        user.setName("tg");
+        user.setPassword("123");
+        user.setIsAdmin(1);
+        user.setAddress("北京市朝阳区翻斗花园98号楼506室");
+        userDao.add(user);
 
-        User user = userDao.selectByName("张三");
-        System.out.println("按照名字来查找");
-        System.out.println(user);
-
-        user = userDao.selectById(1);
-        System.out.println("按照 ID 查找");
-        System.out.println(user);
+//        User user = userDao.selectByName("张三");
+//        System.out.println("按照名字来查找");
+//        System.out.println(user);
+//
+//        user = userDao.selectById(1);
+//        System.out.println("按照 ID 查找");
+//        System.out.println(user);
     }
 }

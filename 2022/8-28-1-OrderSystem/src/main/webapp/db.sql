@@ -13,7 +13,8 @@ create table user (
     userId int primary key auto_increment,
     name varchar(50) unique,
     password varchar(50),
-    isAdmin int  -- 是否是管理员, 0 表示不是管理员, 1 表示是管理员
+    isAdmin int,  -- 是否是管理员, 0 表示不是管理员, 1 表示是管理员
+    address varchar(255)   -- 用户收货地址
 );
 
 drop table if exists order_user;
