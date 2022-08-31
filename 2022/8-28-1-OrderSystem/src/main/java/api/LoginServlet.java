@@ -55,7 +55,7 @@ public class LoginServlet extends HttpServlet {
             if (user == null || !user.getPassword().equals(request.password)) {
                 throw new OrderSystemException("用户名或密码错误");
             }
-//            4. 如果登录成功就拆功能键 session 对象
+//            4. 如果登录成功就拆功能键 session 对象.
             HttpSession session = req.getSession(true);
             session.setAttribute("user", user);
             response.ok = 1;
