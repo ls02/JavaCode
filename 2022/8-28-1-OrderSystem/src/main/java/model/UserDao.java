@@ -21,7 +21,7 @@ public class UserDao {
 //      1. 和数据库建立连接
         Connection connection = DBUtil.getConnection();
 //        2. 拼装 SQL 语句
-        String sql = "insert into user values(null, ?, ?, ?, ?)";
+        String sql = "insert into user values(null, ?, ?, ?, ?, ?)";
         PreparedStatement statement = null;
 
         try {
@@ -30,6 +30,7 @@ public class UserDao {
             statement.setString(2, user.getPassword());
             statement.setInt(3, user.getIsAdmin());
             statement.setString(4, user.getAddress());
+            statement.setString(5, user.getNumb());
 
 //          3. 执行 SQL
             int ret = statement.executeUpdate();
@@ -67,6 +68,7 @@ public class UserDao {
                 user.setPassword(resultSet.getString("password"));
                 user.setIsAdmin(resultSet.getInt("isAdmin"));
                 user.setAddress(resultSet.getString("address"));
+                user.setNumb(resultSet.getString("numb"));
 
                 return user;
             }
@@ -83,7 +85,7 @@ public class UserDao {
     public void delete(int dishId) throws OrderSystemException {
 //        1. 获取数据库连接
         Connection connection = DBUtil.getConnection();
-//        2. 评传 SQL
+//        2. 拼装 SQL
         String sql = "delete from dishes where dishId = ?";
         PreparedStatement statement = null;
         try {
@@ -152,6 +154,7 @@ public class UserDao {
                 user.setPassword(resultSet.getString("password"));
                 user.setIsAdmin(resultSet.getInt("isAdmin"));
                 user.setAddress(resultSet.getString("address"));
+                user.setNumb(resultSet.getString("numb"));
                 return user;
             }
         } catch (SQLException e) {
@@ -164,22 +167,129 @@ public class UserDao {
         return null;
     }
 
+    public void deleteUserName(String userName) throws OrderSystemException {
+        // 1. 获取数据库连接
+        Connection connection = DBUtil.getConnection();
+        // 2. 拼装 SQL
+        String sql = "delete from user where name = ?";
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, userName);
+            // 3. 执行 SQL
+            int ret = statement.executeUpdate();
+            if (ret != 1) {
+                throw new OrderSystemException("删除用户失败!");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new OrderSystemException("删除用户失败！");
+        } finally {
+            // 5. 断开连接
+            DBUtil.close(connection, statement, null);
+        }
+    }
+
+    public void setPassword(String name, String password) throws OrderSystemException {
+        // 1. 获取数据库连接
+        Connection connection = DBUtil.getConnection();
+        // 2. 拼装 SQL
+        String sql = "update user set  password = ? where name = ?";
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, password);
+            statement.setString(2, name);
+            // 3. 执行 SQL
+            int ret = statement.executeUpdate();
+            if (ret != 1) {
+                throw new OrderSystemException("修改密码失败");
+            }
+            System.out.println("修改成功!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new OrderSystemException("修改密码失败");
+        } catch (OrderSystemException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(connection, statement, null);
+        }
+    }
+
+    public void setAddress(String name, String address) throws OrderSystemException {
+        // 1. 获取数据库连接
+        Connection connection = DBUtil.getConnection();
+        // 2. 拼装 SQL
+        String sql = "update user set address = ? where name = ?";
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, address);
+            statement.setString(2, name);
+            // 3. 执行 SQL
+            int ret = statement.executeUpdate();
+            if (ret != 1) {
+                throw new OrderSystemException("修改地址失败");
+            }
+            System.out.println("修改成功!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new OrderSystemException("修改地址失败");
+        } catch (OrderSystemException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(connection, statement, null);
+        }
+    }
+
+    public void setNumb(String name, String numb) throws OrderSystemException {
+        // 1. 获取数据库连接
+        Connection connection = DBUtil.getConnection();
+        // 2. 拼装 SQL
+        String sql = "update user set numb = ? where name = ?";
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, numb);
+            statement.setString(2, name);
+            // 3. 执行 SQL
+            int ret = statement.executeUpdate();
+            if (ret != 1) {
+                throw new OrderSystemException("修改手机号失败");
+            }
+            System.out.println("修改成功!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new OrderSystemException("修改手机号失败");
+        } catch (OrderSystemException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(connection, statement, null);
+        }
+    }
+
     public static void main(String[] args) throws OrderSystemException {
         UserDao userDao = new UserDao();
 
         User user = new User();
-        user.setName("tg");
-        user.setPassword("123");
-        user.setIsAdmin(1);
-        user.setAddress("北京市朝阳区翻斗花园98号楼506室");
-        userDao.add(user);
+//        user.setName("admin");
+//        user.setPassword("123");
+//        user.setIsAdmin(1);
+//        user.setAddress("北京市朝阳区翻斗花园98号楼506室");
+//        user.setNumb("666666");
+//        userDao.add(user);
 
-//        User user = userDao.selectByName("张三");
+//         userDao.setPassword("张三", "123");
+
+//        userDao.deleteUserName("9");
+//        User user = userDao.selectByName("9");
 //        System.out.println("按照名字来查找");
 //        System.out.println(user);
 //
 //        user = userDao.selectById(1);
 //        System.out.println("按照 ID 查找");
 //        System.out.println(user);
+
     }
 }

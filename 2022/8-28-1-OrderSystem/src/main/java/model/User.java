@@ -13,6 +13,7 @@ public class User {
     private String password;
     private int isAdmin;
     private String address;
+    private String numb;
 
     public int getUserId() {
         return userId;
@@ -54,6 +55,14 @@ public class User {
         this.address = address;
     }
 
+    public String getNumb() {
+        return numb;
+    }
+
+    public void setNumb(String numb) {
+        this.numb = numb;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -62,6 +71,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", isAdmin=" + isAdmin +
                 ", address='" + address + '\'' +
+                ", numb='" + numb + '\'' +
                 '}';
     }
 }

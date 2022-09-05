@@ -17,6 +17,14 @@ public class TestGson {
         }
     }
 
+    static class Test {
+        private String name;
+
+        public Test(String name) {
+            this.name = name;
+        }
+    }
+
     public static void main(String[] args) {
         // 1. 实例化 Gson 对象 (工厂模式)
         Gson gson = new GsonBuilder().create();

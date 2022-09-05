@@ -132,7 +132,7 @@ public class DishServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("application/json; charset=utf-8");
         try {
-//            1. 检测登录抓过你太
+//            1. 检测登录状态
             HttpSession session = req.getSession(false);
             if (session == null) {
                 throw new OrderSystemException("您尚未登陆");
@@ -150,6 +150,51 @@ public class DishServlet extends HttpServlet {
         } catch (OrderSystemException e) {
             response.ok = 0;
             response.reason = e.getMessage();
+            String jsonString = gson.toJson(response);
+            resp.getWriter().write(jsonString);
+        }
+    }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        Response response = new Response();
+
+        try {
+//            1. 检查用户是否登录
+            HttpSession session = req.getSession(false);
+            if (session == null) {
+                throw new OrderSystemException("您尚未登陆");
+            }
+            User user = (User) session.getAttribute("user");
+            if (user == null) {
+                throw new OrderSystemException("您尚未登陆");
+            }
+//            2. 检查用户是否是管理员
+            if (user.getIsAdmin() == 0) {
+                throw new OrderSystemException("您不是管理员");
+            }
+//            4. 读取到 dishId
+            String dishIdStr = req.getParameter("dishId");
+            if(dishIdStr == null) {
+                throw new OrderSystemException("dishId 参数不正确");
+            }
+            int dishId = Integer.parseInt(dishIdStr);
+
+            String body = OrderSystemUtil.readBody(req);
+            Request request = gson.fromJson(body, Request.class);
+//            4. 删除数据库中的对应记录
+            DishDao dishDao = new DishDao();
+            dishDao.setByPrice(request.price,dishId);
+            dishDao.setByName(request.name, dishId);
+//            5. 返回一个响应结果
+            response.ok =1;
+            response.reason = "";
+        } catch (OrderSystemException e) {
+            response.ok = 0;
+            response.reason = e.getMessage();
+        } finally {
+            resp.setContentType("application/json; charset=utf-8");
             String jsonString = gson.toJson(response);
             resp.getWriter().write(jsonString);
         }

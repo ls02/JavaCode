@@ -3,10 +3,7 @@ package api;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import model.Dish;
-import model.Order;
-import model.OrderDao;
-import model.User;
+import model.*;
 import util.OrderSystemException;
 import util.OrderSystemUtil;
 
@@ -33,6 +30,7 @@ public class OrderServlet extends HttpServlet {
         public int ok;
         public String reason;
     }
+
 
     // 对应第 8 个 API, 新增订单. (普通用户才能新增, 管理员不能新增)
     @Override
@@ -104,6 +102,7 @@ public class OrderServlet extends HttpServlet {
             }
             // 2. 读取 orderId 字段, 看该字段是否存在.
             OrderDao orderDao = new OrderDao();
+
             String orderIdStr = req.getParameter("orderId");
             if (orderIdStr == null) {
                 // 3. 查找数据库, 查找所有订单
@@ -116,7 +115,9 @@ public class OrderServlet extends HttpServlet {
                     orders = orderDao.selectAll();
                 }
                 // 4. 构造响应结果
+
                 String jsonString = gson.toJson(orders);
+                System.out.println(jsonString);
                 resp.getWriter().write(jsonString);
             } else {
                 // 3. 查找数据库, 查找指定订单.

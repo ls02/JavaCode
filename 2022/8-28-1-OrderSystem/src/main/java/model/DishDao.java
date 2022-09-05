@@ -122,21 +122,71 @@ public class DishDao {
         return null;
     }
 
+    public void setByPrice(int price, int dishId) throws OrderSystemException{
+        // 1. 获取数据库连接
+        Connection connection = DBUtil.getConnection();
+        // 2. 拼装 SQL
+        String sql = "update dishes set price = ? where dishId = ?";
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, price);
+            statement.setInt(2, dishId);
+            // 3. 执行 SQL
+            int ret = statement.executeUpdate();
+            if (ret != 1) {
+                throw new OrderSystemException("修改价格失败");
+            }
+            System.out.println("修改成功!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new OrderSystemException("修改价格失败");
+        } finally {
+            DBUtil.close(connection, statement, null);
+        }
+    }
+
+    public void setByName(String name, int dishId) throws OrderSystemException{
+        // 1. 获取数据库连接
+        Connection connection = DBUtil.getConnection();
+        // 2. 拼装 SQL
+        String sql = "update dishes set name = ? where dishId = ?";
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, name);
+            statement.setInt(2, dishId);
+            // 3. 执行 SQL
+            int ret = statement.executeUpdate();
+            if (ret != 1) {
+                throw new OrderSystemException("修改菜名失败");
+            }
+            System.out.println("修改成功!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new OrderSystemException("修改菜名失败");
+        } finally {
+            DBUtil.close(connection, statement, null);
+        }
+    }
+
     public static void main(String[] args) throws OrderSystemException {
         DishDao dishDao = new DishDao();
 //         1. 测试新增
-        Dish dish = new Dish();
-        dish.setName("肉蛋冲击");
-        dish.setPrice(3500); // 单位是 分
-        dishDao.add(dish);
+//        Dish dish = new Dish();
+//        dish.setName("肉蛋冲击");
+//        dish.setPrice(3500); // 单位是 分
+//        dishDao.add(dish);
         // 2. 测试查找
-//        List<Dish> dishes = dishDao.selectAll();
+        List<Dish> dishes = dishDao.selectAll();
 //        System.out.println("查看所有");
 //        System.out.println(dishes);
 //
-//        Dish dish = dishDao.selectById(1);
+        Dish dish = dishDao.selectById(1);
 //        System.out.println("查看单个");
 //        System.out.println(dish);
+
+        dishDao.setByPrice(3000, dish.getDishId());
 
         // 3. 测试删除
 //        dishDao.delete(1);

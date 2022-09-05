@@ -31,6 +31,8 @@ public class RegisterServlet extends HttpServlet {
         public String name;
         public String password;
         public String address;
+        public String numb;
+        public String flags;
 }
 
 //  构造的 JSON 响应对象
@@ -56,12 +58,26 @@ public class RegisterServlet extends HttpServlet {
 //                当前用户名重复了就直接放回一个表示注册失败的信息
                 throw new OrderSystemException("当前用户名已经存在");
             }
+
+            if (request.password.length() < 6) {
+                throw new OrderSystemException("密码小于6位数");
+            }
+
+            if (request.numb.length() != 11) {
+                throw new OrderSystemException("手机号码格式不正确");
+            }
+
+            if ("".equals(request.address)) {
+                throw new OrderSystemException("地址不能为空");
+            }
+
 //          4.  把提交数据构造成 User 对象，提交给数据库
             User user = new User();
             user.setName(request.name);
             user.setPassword(request.password);
             user.setIsAdmin(0);
             user.setAddress(request.address);
+            user.setNumb(request.numb);
             userDao.add(user);
             response.ok = 1;
             response.reason = "";
