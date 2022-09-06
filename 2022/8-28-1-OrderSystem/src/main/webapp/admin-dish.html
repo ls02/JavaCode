@@ -2,7 +2,7 @@
  * @Author: ls02 <2877455773@qq.com>
  * @Date: 2022-08-30 18:23:56
  * @LastEditors: ls02 <2877455773@qq.com>
- * @LastEditTime: 2022-09-05 01:15:22
+ * @LastEditTime: 2022-09-06 17:13:11
  * @FilePath: \webapp\admin-dish.html
  * @Description: 
  * 
@@ -21,14 +21,16 @@
 <body>
     <div class="center">
         <nav>
-            <div>点餐系统</div>
+            <div>外卖点餐系统</div>
+            <img height="80px" src="./image/logo1.png" alt="加载失败">
             <div class="menu" v-show='!isLogin()'>
                 <a href="login.html">登录</a>
             </div>
             <div class="menu" v-show="isLogin()">
-                <a v-on:click="logout()">注销</a>
+                <a v-on:click="logout()">退出登录</a>
                 <a href="admin-dish.html">菜品管理</a>
                 <a href="admin-order.html">订单管理</a>
+                <a href="personal-center.html">个人中心</a>
                 <a>欢迎管理员, {{name}}!</a>
             </div>
         </nav>
@@ -45,8 +47,11 @@
                 <tr v-for="dish in dishes" class="tr-dish">
                     <td>{{dish.name}}</td>
                     <td>{{dish.price / 100}}</td>
-                    <td> <button class="btn del-dish-btn" v-on:click="deleteDish(dish.dishId)">删除</button> </td>
-                    <td><button class="btn del-dish-btn" v-on:click="showSetDish=true, setDishId(dish.dishId)">修改</button></td>
+                    <td>
+                         <button class="btn del-dish-btn" v-on:click="deleteDish(dish.dishId)">删除</button>
+                         <button class="btn del-dish-btn" v-on:click="showSetDish=true, setDishId(dish.dishId)">修改</button>
+                    </td>
+                    <!-- <td><button class="btn del-dish-btn" v-on:click="showSetDish=true, setDishId(dish.dishId)">修改</button></td> -->
                 </tr>
             </table>
             <button class="btn open-newdish-btn" v-on:click="showAddDishDialog=true">新增菜品</button>

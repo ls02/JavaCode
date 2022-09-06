@@ -2,7 +2,7 @@
  * @Author: ls02 <2877455773@qq.com>
  * @Date: 2022-08-30 18:23:56
  * @LastEditors: ls02 <2877455773@qq.com>
- * @LastEditTime: 2022-09-04 15:25:38
+ * @LastEditTime: 2022-09-06 18:04:15
  * @FilePath: \webapp\register.html
  * @Description: 
  * 
@@ -19,13 +19,14 @@
 </head>
 
 <body>
-    <div class="login">
+    <div class="register-login">
         <h4>请注册</h4>
         <input type="text" placeholder="请输入用户名" v-model="name">
         <input type="password" placeholder="请输入密码" v-model="password">
         <input type="text" placeholder="请输入地址" v-model="address">
         <input type="text" placeholder="请输入手机号" v-model="numb">
         <button v-on:click="register()">注册</button>
+        <a href="login.html" id="return-login">返回登录页面</a>
     </div>
     <!-- 引入 JQuery -->
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -33,7 +34,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
         var app = new Vue({
-            el: '.login',
+            el: '.register-login',
             data: {
                 name: "",
                 password: "",

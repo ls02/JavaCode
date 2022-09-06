@@ -2,7 +2,7 @@
  * @Author: ls02 <2877455773@qq.com>
  * @Date: 2022-08-30 18:23:56
  * @LastEditors: ls02 <2877455773@qq.com>
- * @LastEditTime: 2022-09-04 17:07:57
+ * @LastEditTime: 2022-09-06 18:53:33
  * @FilePath: \webapp\user-dish.html
  * @Description: 
  * 
@@ -34,13 +34,13 @@
 <body>
     <div class="center">
         <nav>
-            <div>点餐系统</div>
+            <div>外卖点餐系统</div>
+            <img height="80px" src="./image/logo1.png" alt="加载失败">
             <div class="menu" v-show='!isLogin()'>
                 <a href="login.html">登录</a>
-                <a href="register.html">注册</a>
             </div>
             <div class="menu" v-show="isLogin()">
-                <a v-on:click="logout()">注销</a>
+                <a v-on:click="logout()">退出登录</a>
                 <a href="user-dish.html">点餐</a>
                 <a href="user-order.html">订单</a>
                 <a href="personal-center.html">个人中心</a>
@@ -53,11 +53,13 @@
         <div class="container" v-show='isLogin()'>
             <table cellspacing="0">
                 <tr class="table-header tr-dish">
+                    <th>序号</th>
                     <th>菜名</th>
                     <th>价格</th>
                     <th>选择</th>
                 </tr>
-                <tr v-for="dish in dishes" class="tr-dish">
+                <tr v-for="(dish, index) in dishes" class="tr-dish">
+                    <td>{{index + 1}}</td>
                     <td>{{dish.name}}</td>
                     <td>{{dish.price / 100}}</td>
                     <td> <input type="checkbox" v-model="dish.isSelected"> </td>

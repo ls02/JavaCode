@@ -2,7 +2,7 @@
  * @Author: ls02 <2877455773@qq.com>
  * @Date: 2022-09-04 16:55:57
  * @LastEditors: ls02 <2877455773@qq.com>
- * @LastEditTime: 2022-09-06 11:53:03
+ * @LastEditTime: 2022-09-06 17:14:23
  * @FilePath: \webapp\personal-center.html
  * @Description: 
  * 
@@ -24,25 +24,30 @@
             <a href="login.html">登录</a>
             <a href="register.html">注册</a>
         </div>
-        <!-- 导航栏 -->
-        <div class="nav">
-            <a href="user-dish.html">返回菜单</a>
-            <a v-on:click="logout()">注销</a>
-        </div>
+
         <div class="notice" v-show='!isLogin()'>
             请先<a href="login.html">登陆!</a>
         </div>
 
-        修改密码：<input type="password" placeholder="请输入新的密码" v-model="user.password">
-        <button v-on:click="setPassword()">提交</button>
-        <br >
+        <!-- 导航栏 -->
+        <div class="nav">
+            <a href="user-dish.html">返回主页</a>
+            <a v-on:click="logout()">退出登录</a>
+        </div>
 
-        修改地址：<input type="text" placeholder="请输入新的地址" v-model="user.address">
-        <button v-on:click="setAddress()">提交</button>
-        <br>
-        修改手机号：<input type="text" placeholder="请输入新的手机号" v-model="user.numb">
-        <button v-on:click="setNumb">提交</button>
-        <br>
+        <div class="set-user">
+            <h4>修改密码</h4>
+            <input type="password" placeholder="请输入新的密码" v-model="user.password">
+            <button v-on:click="setPassword()">提交</button>
+            <br>
+            <h4>修改地址</h4>
+            <input type="text" placeholder="请输入新的地址" v-model="user.address">
+            <button v-on:click="setAddress()">提交</button>
+            <br>
+            <h4>修改手机号</h4>
+            <input type="text" placeholder="请输入新的手机号" v-model="user.numb">
+            <button v-on:click="setNumb">提交</button>
+        </div>
     </div>
 
     <!-- 引入 JQuery -->

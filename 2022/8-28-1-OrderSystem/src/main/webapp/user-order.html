@@ -2,8 +2,8 @@
  * @Author: ls02 <2877455773@qq.com>
  * @Date: 2022-08-30 18:23:56
  * @LastEditors: ls02 <2877455773@qq.com>
- * @LastEditTime: 2022-09-05 19:24:55
- * @FilePath: \src\main\webapp\user-order.html
+ * @LastEditTime: 2022-09-06 19:10:11
+ * @FilePath: \webapp\user-order.html
  * @Description: 
  * 
  * Copyright (c) 2022 by ${ls02 <2877455773@qq.com>}, All Rights Reserved. 
@@ -22,13 +22,13 @@
     <div class="center">
         <div class="test">
             <nav>
-                <div>点餐系统</div>
+                <div>外卖点餐系统</div>
+                <img height="80px" src="./image/logo1.png" alt="加载失败">
                 <div class="menu" v-show='!isLogin()'>
                     <a href="login.html">登录</a>
-                    <a href="register.html">注册</a>
                 </div>
                 <div class="menu" v-show="isLogin()">
-                    <a v-on:click="logout()">注销</a>
+                    <a v-on:click="logout()">退出登录</a>
                     <a href="user-dish.html">点餐</a>
                     <a href="user-order.html">订单</a>
                     <a href="personal-center.html">个人中心</a>
@@ -45,15 +45,15 @@
                     <th>订单id</th>
                     <th>用户id</th>
                     <th>用户姓名</th>
-                    <th>是否完结</th>
+                    <th>是否配送</th>
                     <th>订单时间</th>
-                    <th>查看详情</th>
+                    <th></th>
                 </tr>
                 <tr v-for="order in orders" class="tr-order">
                     <td>{{order.orderId}}</td>
                     <td>{{order.userId}}</td>
                     <td>{{name}}</td>
-                    <td>{{order.isDone == 1 ? "已完结" : "未完结"}}</td>
+                    <td>{{order.isDone == 1 ? "已配送" : "未配送"}}</td>
                     <td>{{order.time}}</td>
                     <td>
                         <button class="btn" v-on:click='getOrderDetail(order.orderId)'>查看详情</button>
@@ -84,10 +84,12 @@
             <div class="dialog" v-if="userOrder != null">
                 <table cellspacing="0">
                     <tr class="table-header">
+                        <th>用户名</th>
                         <th>地址</th>
                         <th>手机号</th>
                     </tr>
                     <tr class="tr-order-detail">
+                        <td>{{userOrder.name}}</td>
                         <td>{{userOrder.address}}</td>
                         <td>{{userOrder.numb}}</td>
                     </tr>

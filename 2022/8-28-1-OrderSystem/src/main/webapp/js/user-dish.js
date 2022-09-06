@@ -3,7 +3,7 @@ var app = new Vue({
     data: {
         // 当前登录用户的用户名, 为空字符串表示未登录状态
         name: "",
-
+        const: "0",
         // 当前的菜品列表
         dishes: [
             // {
