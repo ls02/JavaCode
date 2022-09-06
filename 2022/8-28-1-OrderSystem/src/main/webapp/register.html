@@ -1,0 +1,74 @@
+<!--
+ * @Author: ls02 <2877455773@qq.com>
+ * @Date: 2022-08-30 18:23:56
+ * @LastEditors: ls02 <2877455773@qq.com>
+ * @LastEditTime: 2022-09-04 15:25:38
+ * @FilePath: \webapp\register.html
+ * @Description: 
+ * 
+ * Copyright (c) 2022 by ${ls02 <2877455773@qq.com>}, All Rights Reserved. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="login">
+        <h4>请注册</h4>
+        <input type="text" placeholder="请输入用户名" v-model="name">
+        <input type="password" placeholder="请输入密码" v-model="password">
+        <input type="text" placeholder="请输入地址" v-model="address">
+        <input type="text" placeholder="请输入手机号" v-model="numb">
+        <button v-on:click="register()">注册</button>
+    </div>
+    <!-- 引入 JQuery -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- 引入 Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '.login',
+            data: {
+                name: "",
+                password: "",
+                address: "",
+                numb: ""
+            },
+            methods: {
+                register() {
+                    console.log("register");
+                    $.ajax({
+                        url: 'register',
+                        type: 'post',
+                        data: JSON.stringify({
+                            name: app.name,
+                            password: app.password,
+                            address: app.address,
+                            numb: app.numb
+                        }),
+                        success: function (data, status) {
+                            if (data.ok != 1) {
+                                alert('注册失败! ' + data.reason);
+                                app.name = "";
+                                app.password = "";
+                                app.address = "";
+                                app.numb = "";
+                                return;
+                            }
+                            alert("注册成功! 请在登陆页面登陆");
+                            window.location.href = "login.html";
+                        }
+                    })
+                },
+            }
+        });
+    </script>
+</body>
+
+</html>
