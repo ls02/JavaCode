@@ -125,7 +125,7 @@ public class DishServlet extends HttpServlet {
         }
     }
 
-//    查看所有菜品 API
+//    查看所有菜品 API.
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Response response = new Response();
