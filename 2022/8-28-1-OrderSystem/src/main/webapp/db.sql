@@ -14,7 +14,11 @@ create table user (
     isAdmin int,
     -- 是否是管理员, 0 表示不是管理员, 1 表示是管理员
     address varchar(255),
-    numb varchar(20)
+    numb varchar(20),
+    provinceIndex varchar(128),
+    cityIndex varchar(128),
+    districtIndex varchar(128),
+    street varchar(128)
 );
 drop table if exists order_user;
 create table order_user (

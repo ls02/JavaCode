@@ -14,6 +14,10 @@ public class User {
     private int isAdmin;
     private String address;
     private String numb;
+    private String provinceIndex;
+    private String cityIndex;
+    private String districtIndex;
+    private String street;
 
     public int getUserId() {
         return userId;
@@ -63,6 +67,38 @@ public class User {
         this.numb = numb;
     }
 
+    public String getProvinceIndex() {
+        return provinceIndex;
+    }
+
+    public void setProvinceIndex(String provinceIndex) {
+        this.provinceIndex = provinceIndex;
+    }
+
+    public String getCityIndex() {
+        return cityIndex;
+    }
+
+    public void setCityIndex(String cityIndex) {
+        this.cityIndex = cityIndex;
+    }
+
+    public String getDistrictIndex() {
+        return districtIndex;
+    }
+
+    public void setDistrictIndex(String districtIndex) {
+        this.districtIndex = districtIndex;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -72,6 +108,10 @@ public class User {
                 ", isAdmin=" + isAdmin +
                 ", address='" + address + '\'' +
                 ", numb='" + numb + '\'' +
+                ", provinceIndex='" + provinceIndex + '\'' +
+                ", cityIndex='" + cityIndex + '\'' +
+                ", districtIndex='" + districtIndex + '\'' +
+                ", street='" + street + '\'' +
                 '}';
     }
 }

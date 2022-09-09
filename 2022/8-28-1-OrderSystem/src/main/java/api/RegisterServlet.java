@@ -33,6 +33,10 @@ public class RegisterServlet extends HttpServlet {
         public String address;
         public String numb;
         public String flags;
+        public String provinceIndex;
+        public String cityIndex;
+        public String districtIndex;
+        public String street;
 }
 
 //  构造的 JSON 响应对象
@@ -78,6 +82,10 @@ public class RegisterServlet extends HttpServlet {
             user.setIsAdmin(0);
             user.setAddress(request.address);
             user.setNumb(request.numb);
+            user.setProvinceIndex(request.provinceIndex);
+            user.setCityIndex(request.cityIndex);
+            user.setDistrictIndex(request.districtIndex);
+            user.setStreet(request.street);
             userDao.add(user);
             response.ok = 1;
             response.reason = "";

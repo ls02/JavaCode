@@ -2,8 +2,8 @@
  * @Author: ls02 <2877455773@qq.com>
  * @Date: 2022-08-30 18:23:56
  * @LastEditors: ls02 <2877455773@qq.com>
- * @LastEditTime: 2022-09-06 19:10:11
- * @FilePath: \webapp\user-order.html
+ * @LastEditTime: 2022-09-09 17:57:02
+ * @FilePath: \main\webapp\user-order.html
  * @Description: 
  * 
  * Copyright (c) 2022 by ${ls02 <2877455773@qq.com>}, All Rights Reserved. 
@@ -29,9 +29,9 @@
                 </div>
                 <div class="menu" v-show="isLogin()">
                     <a v-on:click="logout()">退出登录</a>
-                    <a href="user-dish.html">点餐</a>
-                    <a href="user-order.html">订单</a>
                     <a href="personal-center.html">个人中心</a>
+                    <a href="user-order.html">订单</a>
+                    <a href="user-dish.html">点餐</a>
                     <a>欢迎您, {{name}}!</a>
                 </div>
             </nav>
@@ -57,7 +57,7 @@
                     <td>{{order.time}}</td>
                     <td>
                         <button class="btn" v-on:click='getOrderDetail(order.orderId)'>查看详情</button>
-                        <button class="btn" v-on:click='getUser(order.userId)'>查看地址</button>
+                        <button class="btn" v-on:click='getUser(order.userId), getAddress()'>查看地址</button>
                     </td>
                 </tr>
             </table>
@@ -90,7 +90,7 @@
                     </tr>
                     <tr class="tr-order-detail">
                         <td>{{userOrder.name}}</td>
-                        <td>{{userOrder.address}}</td>
+                        <td>{{provinceIndex}}{{cityIndex}}{{districtIndex}}{{street}}{{userOrder.address}}</td>
                         <td>{{userOrder.numb}}</td>
                     </tr>
                 </table>

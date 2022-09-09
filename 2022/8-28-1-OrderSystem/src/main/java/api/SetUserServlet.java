@@ -47,14 +47,31 @@ public class SetUserServlet extends HttpServlet {
             String address = request.address;
             int flags = Integer.parseInt(request.flags);
             String password = request.password;
+            String provinceIndex = request.provinceIndex;
+            String cityIndex = request.cityIndex;
+            String districtIndex = request.districtIndex;
+            String street = request.street;
 //            flags 为 1 是修改密码
 //            flags 为 2 是修改地址
 //            flags 为 3 是修改手机号
             if (flags == 1) {
+                if (password.length() < 6) {
+                    throw new OrderSystemException("密码小于6位");
+                }
                 userDao.setPassword(name, password);
             } else if (flags == 2) {
+                if ("".equals(address)) {
+                    throw new OrderSystemException("地址为空");
+                }
                 userDao.setAddress(name, address);
+                userDao.setProvinceIndex(name, provinceIndex);
+                userDao.setCityIndex(name, cityIndex);
+                userDao.setDistrictIndex(name, districtIndex);
+                userDao.setStreet(name, street);
             } else if (flags == 3) {
+                if(numb.length() != 11){
+                    throw new OrderSystemException("手机号小于11位");
+                }
                 userDao.setNumb(name, numb);
             } else {
                 throw new OrderSystemException("未定义的标识符");

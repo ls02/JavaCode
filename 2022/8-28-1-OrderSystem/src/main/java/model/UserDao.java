@@ -21,7 +21,7 @@ public class UserDao {
 //      1. 和数据库建立连接
         Connection connection = DBUtil.getConnection();
 //        2. 拼装 SQL 语句
-        String sql = "insert into user values(null, ?, ?, ?, ?, ?)";
+        String sql = "insert into user values(null, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement statement = null;
 
         try {
@@ -31,6 +31,10 @@ public class UserDao {
             statement.setInt(3, user.getIsAdmin());
             statement.setString(4, user.getAddress());
             statement.setString(5, user.getNumb());
+            statement.setString(6, user.getProvinceIndex());
+            statement.setString(7, user.getCityIndex());
+            statement.setString(8, user.getDistrictIndex());
+            statement.setString(9, user.getStreet());
 
 //          3. 执行 SQL
             int ret = statement.executeUpdate();
@@ -69,6 +73,10 @@ public class UserDao {
                 user.setIsAdmin(resultSet.getInt("isAdmin"));
                 user.setAddress(resultSet.getString("address"));
                 user.setNumb(resultSet.getString("numb"));
+                user.setProvinceIndex(resultSet.getString("provinceIndex"));
+                user.setCityIndex(resultSet.getString("cityIndex"));
+                user.setDistrictIndex(resultSet.getString("districtIndex"));
+                user.setStreet(resultSet.getString("street"));
 
                 return user;
             }
@@ -155,6 +163,11 @@ public class UserDao {
                 user.setIsAdmin(resultSet.getInt("isAdmin"));
                 user.setAddress(resultSet.getString("address"));
                 user.setNumb(resultSet.getString("numb"));
+                user.setProvinceIndex(resultSet.getString("provinceIndex"));
+                user.setCityIndex(resultSet.getString("cityIndex"));
+                user.setDistrictIndex(resultSet.getString("districtIndex"));
+                user.setStreet(resultSet.getString("street"));
+
                 return user;
             }
         } catch (SQLException e) {
@@ -269,16 +282,120 @@ public class UserDao {
         }
     }
 
+    public void setProvinceIndex(String name, String provinceIndex) throws OrderSystemException {
+        // 1. 获取数据库连接
+        Connection connection = DBUtil.getConnection();
+        // 2. 拼装 SQL
+        String sql = "update user set provinceIndex = ? where name = ?";
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, provinceIndex);
+            statement.setString(2, name);
+            // 3. 执行 SQL
+            int ret = statement.executeUpdate();
+            if (ret != 1) {
+                throw new OrderSystemException("修改失败");
+            }
+            System.out.println("修改成功!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new OrderSystemException("修改失败");
+        } catch (OrderSystemException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(connection, statement, null);
+        }
+    }
+
+    public void setCityIndex(String name, String cityIndex) throws OrderSystemException {
+        // 1. 获取数据库连接
+        Connection connection = DBUtil.getConnection();
+        // 2. 拼装 SQL
+        String sql = "update user set cityIndex = ? where name = ?";
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, cityIndex);
+            statement.setString(2, name);
+            // 3. 执行 SQL
+            int ret = statement.executeUpdate();
+            if (ret != 1) {
+                throw new OrderSystemException("修改失败");
+            }
+            System.out.println("修改成功!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new OrderSystemException("修改失败");
+        } catch (OrderSystemException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(connection, statement, null);
+        }
+    }
+
+    public void setDistrictIndex(String name, String districtIndex) throws OrderSystemException {
+        // 1. 获取数据库连接
+        Connection connection = DBUtil.getConnection();
+        // 2. 拼装 SQL
+        String sql = "update user set districtIndex = ? where name = ?";
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, districtIndex);
+            statement.setString(2, name);
+            // 3. 执行 SQL
+            int ret = statement.executeUpdate();
+            if (ret != 1) {
+                throw new OrderSystemException("修改失败");
+            }
+            System.out.println("修改成功!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new OrderSystemException("修改失败");
+        } catch (OrderSystemException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(connection, statement, null);
+        }
+    }
+
+    public void setStreet(String name, String street) throws OrderSystemException {
+        // 1. 获取数据库连接
+        Connection connection = DBUtil.getConnection();
+        // 2. 拼装 SQL
+        String sql = "update user set street = ? where name = ?";
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, street);
+            statement.setString(2, name);
+            // 3. 执行 SQL
+            int ret = statement.executeUpdate();
+            if (ret != 1) {
+                throw new OrderSystemException("修改失败");
+            }
+            System.out.println("修改成功!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new OrderSystemException("修改失败");
+        } catch (OrderSystemException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(connection, statement, null);
+        }
+    }
+
     public static void main(String[] args) throws OrderSystemException {
         UserDao userDao = new UserDao();
 
         User user = new User();
-//        user.setName("admin");
-//        user.setPassword("123");
-//        user.setIsAdmin(1);
+        user.setName("admin");
+        user.setPassword("123");
+        user.setIsAdmin(1);
 //        user.setAddress("北京市朝阳区翻斗花园98号楼506室");
 //        user.setNumb("666666");
-//        userDao.add(user);
+        userDao.add(user);
 
 //         userDao.setPassword("张三", "123");
 

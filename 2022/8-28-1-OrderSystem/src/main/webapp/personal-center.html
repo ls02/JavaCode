@@ -2,8 +2,8 @@
  * @Author: ls02 <2877455773@qq.com>
  * @Date: 2022-09-04 16:55:57
  * @LastEditors: ls02 <2877455773@qq.com>
- * @LastEditTime: 2022-09-06 17:14:23
- * @FilePath: \webapp\personal-center.html
+ * @LastEditTime: 2022-09-09 16:43:15
+ * @FilePath: \main\webapp\personal-center.html
  * @Description: 
  * 
  * Copyright (c) 2022 by ${ls02 <2877455773@qq.com>}, All Rights Reserved. 
@@ -41,6 +41,30 @@
             <button v-on:click="setPassword()">提交</button>
             <br>
             <h4>修改地址</h4>
+            <div class="address_select" id="address_select">
+                <div class="select_div">
+                    <select name="province" class="province" v-model="provinceIndex">
+                        <option v-for="(provinceOne,index) in provinceList" v-bind:value="provinceOne.label">
+                            {{provinceOne.value}}
+                        </option>
+                    </select>
+                </div>
+                <div class="select_div">
+                    <select name="city" class="city" v-model="cityIndex">
+                        <option v-for="(cityOne,index) in cityList" value="" v-bind:value="cityOne.label">
+                            {{cityOne.value}}
+                        </option>
+                    </select>
+                </div>
+                <div class="select_div">
+                    <select name="district" class="district" v-model="districtIndex">
+                        <option v-for="(districtOne,index) in districtList" value="" v-bind:value="districtOne.label">
+                            {{districtOne.value}}
+                        </option>
+                    </select>
+                </div>
+                <input type="street" v-bind:placeholder="streetTip" v-model="street"/>
+            </div>
             <input type="text" placeholder="请输入新的地址" v-model="user.address">
             <button v-on:click="setAddress()">提交</button>
             <br>
