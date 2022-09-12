@@ -48,6 +48,7 @@ public class UserAddressServlet extends HttpServlet {
                 throw new OrderSystemException("您尚未登陆");
             }
 
+//            获取请求中的字段
             String userId = req.getParameter("userId");
             User userString = new User();
             UserDao userDao = new UserDao();
