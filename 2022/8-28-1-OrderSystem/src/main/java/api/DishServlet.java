@@ -20,7 +20,7 @@ import java.util.List;
  * Created with IntelliJ IDEA.
  * Description:
  * User: 86176
- * Date: 2022-08-30
+ * Date: 2022-08-30.
  * Time: 15:52
  */
 @WebServlet("/dish")
