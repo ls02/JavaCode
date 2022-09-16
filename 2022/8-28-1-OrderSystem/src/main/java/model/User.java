@@ -5,7 +5,7 @@ package model;
  * Description:
  * User: 86176
  * Date: 2022-08-28
- * Time: 14:23
+ * Time: 14:23.
  */
 public class User {
     private int userId;
