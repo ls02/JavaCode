@@ -1,9 +1,21 @@
 package model;
 
-import com.mysql.cj.jdbc.MysqlDataSource;
-//import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+//8系列Mysql
+//import com.mysql.cj.jdbc.MysqlDataSource;
+////import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+//
+//import javax.sql.DataSource;
+//import java.sql.Connection;
+//import java.sql.PreparedStatement;
+//import java.sql.ResultSet;
+//import java.sql.SQLException;
+
+
+//5系列Mysql
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 import javax.sql.DataSource;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,14 +30,14 @@ import java.sql.SQLException;
  */
 public class DBUtil {
 //    5系类mysql
-//    private static final String URL = "jdbc:mysql://127.0.0.1:3306/test_order_system?characterEncoding=utf-8&userSSL=true";
+    private static final String URL = "jdbc:mysql://101.34.254.220:3306/test_order_system?characterEncoding=utf-8&userSSL=true";
 
 //    8系列mysql
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/test_order_system?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false";
+//    private static final String URL = "jdbc:mysql://127.0.0.1:3306/test_order_system?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false";
 
 
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "1234";
+    private static final String PASSWORD = "";
 
     private static volatile DataSource dataSource = null;
 
